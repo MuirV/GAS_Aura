@@ -36,13 +36,26 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 	AbilitySystemComponent->GetGameplayAttributeValueChangeDelegate(
 		AuraAttributeSet->GetMaxManaAttribute()).AddUObject(this, &UOverlayWidgetController::MaxManaChanged);
 
-	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda([](const FGameplayTagContainer& AssetTags)
+	Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent)->EffectAssetTags.AddLambda(
+		[this](const FGameplayTagContainer& AssetTags)
 	{
 		for (const FGameplayTag& Tag : AssetTags)
 		{
-			//广播 tag 到 widget controller
-			const FString Msg = FString::Printf(TEXT("GE Tag : %s"), *Tag.ToString());
-			GEngine->AddOnScreenDebugMessage(-1, 1.f, FColor::Blue, Msg);
+			// 举例、 如果Tag = Message.HealthPotion
+			
+			//”Message.HealthPotion".MatchesTag("Message") will return True, "Message".MatchesTag("Message.HealthPotion") will return False
+			//子类Tag属于父类， 父类Tag不属于（Matches）子类
+			FGameplayTag MessageTag = FGameplayTag::RequestGameplayTag(FName("Message"));
+			if (Tag.MatchesTag(MessageTag))
+			{
+				const FUIWidgetRow* Row = GetDataTableRowByTag<FUIWidgetRow>(MessageWidgetDataTable, Tag);
+				if (Row)
+				{
+					MessageWidgetRowDelegate.Broadcast(*Row);
+				}
+				
+			}
+		
 		}
 	});
 }
