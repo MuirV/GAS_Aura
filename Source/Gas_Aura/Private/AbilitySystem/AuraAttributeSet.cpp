@@ -12,9 +12,9 @@
 UAuraAttributeSet::UAuraAttributeSet()
 {
 	InitHealth(50.f);
-	InitMaxHealth(100.f);
+
 	InitMana(10.f);
-	InitMaxMana(50.f);
+
 }
 
 void UAuraAttributeSet::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -50,11 +50,11 @@ void UAuraAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, 
 
 	if (Attribute == GetMaxHealthAttribute())
 	{
-		NewValue = FMath::Clamp(NewValue, 1.f, GetMaxHealth());
+		NewValue = FMath::Clamp(NewValue, 1.f, 9999.f);
 	}
 	if (Attribute == GetMaxManaAttribute())
 	{
-		NewValue = FMath::Clamp(NewValue, 1.f, GetMaxMana());
+		NewValue = FMath::Clamp(NewValue, 1.f, 9999.f);
 	}
 }
 
