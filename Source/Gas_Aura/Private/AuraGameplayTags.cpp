@@ -8,7 +8,78 @@ FAuraGameplayTags FAuraGameplayTags::GameplayTags;
 
 void FAuraGameplayTags::InitializeNativeGameplayTags()
 {
-	GameplayTags.Attributes_Secondary_Armor = 
-		UGameplayTagsManager::Get().AddNativeGameplayTag(FName("Attributes.Secondary.Armor"), FString("Reduces damage taken"));
+	UGameplayTagsManager& TagsManager = UGameplayTagsManager::Get();
+
+    GameplayTags.Attributes_Primary_Strength = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Primary.Strength"),
+        FString("Increases Physical damage")
+    );
+
+    GameplayTags.Attributes_Primary_Intelligence = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Primary.Intelligence"),
+        FString("Increases Mana and Magic damage")
+    );
+
+    GameplayTags.Attributes_Primary_Resilience = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Primary.Resilience"),
+        FString("Increases Armor and Block chance")
+    );
+
+    GameplayTags.Attributes_Primary_Vigor = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Primary.Vigor"),
+        FString("Increases Health and Health regeneration")
+    );
+
+    GameplayTags.Attributes_Secondary_Armor = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.Armor"),
+        FString("Reduces incoming physical damage")
+    );
+
+    GameplayTags.Attributes_Secondary_ArmorPenetration = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.ArmorPenetration"),
+        FString("Ignores a percentage of enemy Armor")
+    );
+
+    GameplayTags.Attributes_Secondary_BlockChance = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.BlockChance"),
+        FString("Chance to block incoming attacks")
+    );
+
+    GameplayTags.Attributes_Secondary_CriticalHitChance = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.CriticalHitChance"),
+        FString("Chance to deal critical damage")
+    );
+
+    GameplayTags.Attributes_Secondary_CriticalHitDamage = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.CriticalHitDamage"),
+        FString("Multiplier for critical hit damage")
+    );
+
+    GameplayTags.Attributes_Secondary_CriticalHitResistance = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.CriticalHitResistance"),
+        FString("Reduces enemy critical hit chance against you")
+    );
+
+    GameplayTags.Attributes_Secondary_HealthRegeneration = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.HealthRegeneration"),
+        FString("Health recovered per second")
+    );
+
+    GameplayTags.Attributes_Secondary_ManaRegeneration = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.ManaRegeneration"),
+        FString("Mana recovered per second")
+    );
+
+    GameplayTags.Attributes_Secondary_MaxHealth = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.MaxHealth"),
+        FString("Maximum Health")
+    );
+
+    GameplayTags.Attribute_Secondary_MaxMana = TagsManager.AddNativeGameplayTag(
+        FName("Attributes.Secondary.MaxMana"),
+        FString("Maximum Mana")
+    );
+	
+
 	
 }
