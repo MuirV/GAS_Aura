@@ -75,7 +75,7 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
         FString("Maximum Health")
     );
 
-    GameplayTags.Attribute_Secondary_MaxMana = TagsManager.AddNativeGameplayTag(
+    GameplayTags.Attributes_Secondary_MaxMana = TagsManager.AddNativeGameplayTag(
         FName("Attributes.Secondary.MaxMana"),
         FString("Maximum Mana")
     );

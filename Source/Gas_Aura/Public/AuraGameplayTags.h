@@ -29,7 +29,7 @@ public:
 	FGameplayTag Attributes_Secondary_HealthRegeneration;
 	FGameplayTag Attributes_Secondary_ManaRegeneration;
 	FGameplayTag Attributes_Secondary_MaxHealth;
-	FGameplayTag Attribute_Secondary_MaxMana;
+	FGameplayTag Attributes_Secondary_MaxMana;
 	
 protected:	
 
