@@ -15,7 +15,9 @@ public class Gas_Aura : ModuleRules
 			"EnhancedInput",
 			"GameplayAbilities",
 			"GameplayTags", 
-			"GameplayTasks" });
+			"GameplayTasks",
+			"NavigationSystem"
+		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
 
