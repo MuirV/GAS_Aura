@@ -16,7 +16,8 @@ public class Gas_Aura : ModuleRules
 			"GameplayAbilities",
 			"GameplayTags", 
 			"GameplayTasks",
-			"NavigationSystem"
+			"NavigationSystem",
+			"Niagara"
 		});
 
 		PrivateDependencyModuleNames.AddRange(new string[] { });
