@@ -66,6 +66,7 @@ void UAuraAttributeSet::PreAttributeChange(const FGameplayAttribute& Attribute, 
 	if (Attribute == GetMaxHealthAttribute())
 	{
 		NewValue = FMath::Clamp(NewValue, 1.f, 9999.f);
+		
 	}
 	if (Attribute == GetMaxManaAttribute())
 	{
@@ -119,12 +120,12 @@ void UAuraAttributeSet::PostGameplayEffectExecute(const FGameplayEffectModCallba
 	if (Data.EvaluatedData.Attribute == GetHealthAttribute())
 	{
 		SetHealth(FMath::Clamp(GetHealth(), 0.f, GetMaxHealth()));
-		GEngine->AddOnScreenDebugMessage(1, 3.f, FColor::Red, FString::Printf(TEXT("Health changed: %f"), GetHealth()));
+		UE_LOG(LogTemp, Warning, TEXT("CHanged Health on %s, Health: %f"), *Props.TargetAvatarActor->GetName(), GetHealth());
 	}
 	if (Data.EvaluatedData.Attribute == GetManaAttribute())
 	{
 		SetMana(FMath::Clamp(GetMana(), 0.f, GetMaxMana()));
-		GEngine->AddOnScreenDebugMessage(1, 3.f, FColor::Blue, FString::Printf(TEXT("Mana changed: %f"), GetMana()));
+		
 	}
 }
 

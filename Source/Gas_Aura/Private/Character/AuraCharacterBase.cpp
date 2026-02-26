@@ -13,6 +13,7 @@ AAuraCharacterBase::AAuraCharacterBase()
 	PrimaryActorTick.bCanEverTick = false;
 
 	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Camera, ECR_Ignore);
+	GetCapsuleComponent()->SetGenerateOverlapEvents(false);
 	GetMesh()->SetCollisionResponseToChannel(ECC_Camera, ECR_Ignore);
 	//GetMesh()->SetCollisionResponseToChannel(ECC_Projectile, ECR_Overlap); 去胶囊提设置 和 投射物重叠即可
 	GetMesh()->SetGenerateOverlapEvents(true);

@@ -3,6 +3,8 @@
 
 #include "Actor/AuraProjectile.h"
 
+#include "AbilitySystemBlueprintLibrary.h"
+#include "AbilitySystemComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Components/AudioComponent.h"
 #include "Components/SphereComponent.h"
@@ -17,6 +19,8 @@ AAuraProjectile::AAuraProjectile()
 	PrimaryActorTick.bCanEverTick = false;
 	bReplicates = true;
 	
+	// 补上这一行，Client 才能看到火球飞出去
+	SetReplicateMovement(true);
 	
 	Sphere = CreateDefaultSubobject<USphereComponent>("Sphere");
 	SetRootComponent(Sphere);
@@ -43,6 +47,8 @@ void AAuraProjectile::BeginPlay()
 	Sphere->OnComponentBeginOverlap.AddDynamic(this, &AAuraProjectile::OnSphereOverlap);
 
 	LoopingSoundComponent = UGameplayStatics::SpawnSoundAttached(LoopingSound, GetRootComponent());
+
+	
 }
 
 void AAuraProjectile::Destroyed()
@@ -71,6 +77,12 @@ void AAuraProjectile::OnSphereOverlap(UPrimitiveComponent* OverlappedComponent, 
     
 	if (HasAuthority())
 	{
+		if (UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(OtherActor))
+		{
+			TargetASC->ApplyGameplayEffectSpecToSelf(*DamageEffectSpecHandle.Data.Get());
+			
+		}
+		
 		Destroy();
 	}
 	else
