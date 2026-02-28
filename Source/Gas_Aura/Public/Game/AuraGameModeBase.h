@@ -6,6 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "AuraGameModeBase.generated.h"
 
+class UCharacterClassInfo;
 /**
  * 
  */
@@ -13,5 +14,9 @@ UCLASS()
 class GAS_AURA_API AAuraGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
+
+public:
 	
+	UPROPERTY(EditDefaultsOnly, Category = "Chracter Class Info")
+	TObjectPtr<UCharacterClassInfo> CharacterClassInfo;
 };
