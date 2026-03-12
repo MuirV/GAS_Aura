@@ -18,7 +18,7 @@ public:
 	bool IsCriticalHit() const{ return bIsCriticalHit; }
 	bool IsBlockedHit() const { return bIsBlockedHit; }
 	
-	virtual UScriptStruct* getScriptStruct() const
+	virtual UScriptStruct* GetScriptStruct() const
 	{
 		return FGameplayEffectContext::StaticStruct();
 	}
