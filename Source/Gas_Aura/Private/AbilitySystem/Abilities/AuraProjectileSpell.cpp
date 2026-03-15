@@ -29,7 +29,7 @@ void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocati
 	{
 		const FVector SocketLocation = CombatInterface->GetCombatSocketLocation();
 		FRotator Rotation = (ProjectileTargetLocation - SocketLocation).Rotation();
-		Rotation.Pitch = 0.f; //保持水平旋转
+		//Rotation.Pitch = 0.f; //保持水平旋转 Client模式下相比较客户端会导致火球高度不一致 
 
 		//存在bug，Client和Standalone模式下火球脱手方向高度不同
 		FTransform SpawnTransform;
