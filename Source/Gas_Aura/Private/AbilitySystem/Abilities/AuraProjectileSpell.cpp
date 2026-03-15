@@ -34,7 +34,6 @@ void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocati
 		//存在bug，Client和Standalone模式下火球脱手方向高度不同
 		FTransform SpawnTransform;
 		SpawnTransform.SetLocation(SocketLocation);
-		//待办：旋转Projectile方向
 		SpawnTransform.SetRotation(Rotation.Quaternion());
 		
 		AAuraProjectile* Projectile = GetWorld()->SpawnActorDeferred<AAuraProjectile>(
