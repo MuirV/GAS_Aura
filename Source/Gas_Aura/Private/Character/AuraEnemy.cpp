@@ -75,6 +75,16 @@ void AAuraEnemy::Die()
 	
 }
 
+void AAuraEnemy::SetCombatTarget_Implementation(AActor* InCombatTarget)
+{
+	CombatTarget = InCombatTarget;
+}
+
+AActor* AAuraEnemy::GetCombatTarget_Implementation()
+{
+	return CombatTarget;
+}
+
 
 void AAuraEnemy::BeginPlay()
 {
