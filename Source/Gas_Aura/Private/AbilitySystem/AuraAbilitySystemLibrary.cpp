@@ -72,7 +72,7 @@ void UAuraAbilitySystemLibrary::InitializeDefaultAttributes(const UObject* World
 }
 
 void UAuraAbilitySystemLibrary::GiveStartupGameplayAbilities(const UObject* WorldContextObject,
-	UAbilitySystemComponent* ASC)
+	UAbilitySystemComponent* ASC, ECharacterClass CharacterClass)
 {
 	UCharacterClassInfo* CharacterClassInfo = GetCharacterClassInfo(WorldContextObject);
 	for (TSubclassOf<UGameplayAbility> AbilityClass : CharacterClassInfo->CommonAbilities)
@@ -80,6 +80,7 @@ void UAuraAbilitySystemLibrary::GiveStartupGameplayAbilities(const UObject* Worl
 		FGameplayAbilitySpec AbilitySpec = FGameplayAbilitySpec(AbilityClass, 1);
 		ASC->GiveAbility(AbilitySpec);
 	}
+	
 	
 }
 
