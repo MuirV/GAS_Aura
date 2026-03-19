@@ -141,7 +141,7 @@ void UAuraAbilitySystemLibrary::GetLivePlayersWithinRadius(const UObject* WorldC
 	TArray<AActor*>& OutOverlappingActors, const TArray<AActor*>& ActorsToIgnore, float Radius,
 	const FVector& SphereOrigin)
 {
-	//我们如何知道接下来如何做？Thinking : ApplyRadialDamageWithFalloff
+	//我们如何知道接下来如何做？Thinking : ApplyRadialDamageWithFalloff   
 	FCollisionQueryParams SphereParams;
 	SphereParams.AddIgnoredActors(ActorsToIgnore);
 
