@@ -6,6 +6,14 @@
 #include "UObject/Interface.h"
 #include "CombatInterface.generated.h"
 
+USTRUCT(BlueprintType)
+struct FTaggedMontage
+{
+	GENERATED_BODY()
+
+	
+};
+
 // This class does not need to be modified.
 UINTERFACE(MinimalAPI, BlueprintType)
 class UCombatInterface : public UInterface
