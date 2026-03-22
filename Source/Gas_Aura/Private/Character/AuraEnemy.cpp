@@ -104,7 +104,7 @@ void AAuraEnemy::BeginPlay()
 	{
 		AuraUserWidget->SetWidgetController(this);
 	}
-
+	//Ctrl+D 复制 BP→AttributeSet = nullptr 用 Actor 自己的 AttributeSet（可能是空） 从 ASC 里拿 AttributeSet（GAS真正管理的）
 	const UAuraAttributeSet* AuraAS = AbilitySystemComponent->GetSet<UAuraAttributeSet>();
 	if (!AuraAS)
 	{
