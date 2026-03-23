@@ -49,6 +49,9 @@ public:
 	FGameplayTag Damage_Arcane;
 	FGameplayTag Damage_Physical;
 
+	FGameplayTag Abilities_Attack;
+	FGameplayTag Abilities_Summon;
+	
 	FGameplayTag Montage_Combat_Weapon;
 	FGameplayTag Montage_Combat_LeftHand;
 	FGameplayTag Montage_Combat_RightHand;
@@ -62,7 +65,8 @@ public:
 	
 	FGameplayTag Effects_HitReact;
 
-	FGameplayTag Abilities_Attack;
+	
+	
 private:
 	static FAuraGameplayTags GameplayTags;
 
