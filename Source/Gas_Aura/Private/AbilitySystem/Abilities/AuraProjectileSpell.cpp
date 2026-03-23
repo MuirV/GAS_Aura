@@ -19,7 +19,7 @@ void UAuraProjectileSpell::ActivateAbility(const FGameplayAbilitySpecHandle Hand
 	
 }
 
-void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag)
+void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocation, const FGameplayTag& SocketTag, bool bOverridePitch, float PitchOverride)
 {
 	const bool bIsServer = GetAvatarActorFromActorInfo()->HasAuthority();
 	if (!bIsServer) return;
@@ -33,7 +33,11 @@ void UAuraProjectileSpell::SpawnProjectile(const FVector& ProjectileTargetLocati
 			);
 		//FVector SocketLocation = CombatInterface->GetCombatSocketLocation();  optimized
 		FRotator Rotation = (ProjectileTargetLocation - SocketLocation).Rotation();
-		//Rotation.Pitch = 0.f; //保持水平旋转 Client模式下相比较客户端会导致火球高度不一致 
+		//Rotation.Pitch = 0.f; //保持水平旋转 Client模式下相比较客户端会导致火球高度不一致
+		if (bOverridePitch)
+		{
+			Rotation.Pitch = PitchOverride;
+		}
 
 		//存在bug，Client和Standalone模式下火球脱手方向高度不同
 		FTransform SpawnTransform;
