@@ -15,8 +15,13 @@ class GAS_AURA_API UAuraSummonAbility : public UAuraGameplayAbility
 	GENERATED_BODY()
 public:
 
+	
 	UFUNCTION(BlueprintCallable)
 	TArray<FVector> GetSpawnLocations();
+
+	UFUNCTION(BlueprintPure, Category = "Summoning")
+	TSubclassOf<APawn> GetRandomMinion();
+	
 	//Minion 随从
 	UPROPERTY(EditAnywhere, Category = "Summoning")
 	int32 NumMinions = 5;
@@ -32,5 +37,6 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = "Summoning")
 	float SpawnSpread = 90.f;
+
 	
 };
