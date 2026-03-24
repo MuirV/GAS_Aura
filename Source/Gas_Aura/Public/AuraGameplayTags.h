@@ -51,6 +51,8 @@ public:
 
 	FGameplayTag Abilities_Attack;
 	FGameplayTag Abilities_Summon;
+
+	FGameplayTag Abilities_Fire_FireBolt;
 	
 	FGameplayTag Montage_Combat_Weapon;
 	FGameplayTag Montage_Combat_LeftHand;

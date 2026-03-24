@@ -189,6 +189,12 @@ void FAuraGameplayTags::InitializeNativeGameplayTags()
     FName("Abilities.Summon"),
     FString("Abilities Summon Tag")
 	);
+
+    GameplayTags.Abilities_Fire_FireBolt = UGameplayTagsManager::Get().AddNativeGameplayTag(
+    FName("Abilities.Fire.FireBolt"),
+    FString("Abilities Fire Tag")
+    );
+    
     /*
      *  Montage Combat Tags
      */
