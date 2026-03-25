@@ -51,7 +51,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 
 	if (UAuraAbilitySystemComponent* AuraASC = Cast<UAuraAbilitySystemComponent>(AbilitySystemComponent))
 	{
-		if (AuraASC->bStartupAbilities)
+		if (AuraASC->bStartupAbilitiesGiven)
 		{
 			OnInitializeStartupAbilities(AuraASC);
 		}
@@ -92,7 +92,7 @@ void UOverlayWidgetController::BindCallbacksToDependencies()
 void UOverlayWidgetController::OnInitializeStartupAbilities(UAuraAbilitySystemComponent* AuraAbilitySystemComponent)
 {
 	//待办：获取所有已给能力的信息，查找其Abilitylnfo，并将其广播到小部件。
-	if (!AuraAbilitySystemComponent->bStartupAbilities) return;
+	if (!AuraAbilitySystemComponent->bStartupAbilitiesGiven) return;
 	
 	FForEachAbility BroadcastDelegate;
 	//这部分绑定的代码，在进入ForEachAbility后，会ExecuteIfbound()执行回调，此时BindLambda()部分的代码这时候才会执行
