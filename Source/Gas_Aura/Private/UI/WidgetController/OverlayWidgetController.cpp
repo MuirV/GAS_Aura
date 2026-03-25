@@ -95,6 +95,7 @@ void UOverlayWidgetController::OnInitializeStartupAbilities(UAuraAbilitySystemCo
 	if (!AuraAbilitySystemComponent->bStartupAbilities) return;
 	
 	FForEachAbility BroadcastDelegate;
+	//这部分绑定的代码，在进入ForEachAbility后，会ExecuteIfbound()执行回调，此时BindLambda()部分的代码这时候才会执行
 	BroadcastDelegate.BindLambda([this, AuraAbilitySystemComponent](const FGameplayAbilitySpec& AbilitySpec)
 	{
 		//需要一个方法来给定能力一个能力Spec
@@ -104,5 +105,6 @@ void UOverlayWidgetController::OnInitializeStartupAbilities(UAuraAbilitySystemCo
 	});
 	AuraAbilitySystemComponent->ForEachAbility(BroadcastDelegate);
 }
+
 
 
