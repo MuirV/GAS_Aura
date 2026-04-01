@@ -66,6 +66,7 @@ public:
 	FGameplayTag Montage_Attack_3;
 	FGameplayTag Montage_Attack_4;
 	
+	//这里TaFei项目请忽略，我大概是不会做不同属性的Resistance的，只会在Gas_Aura项目里面做
 	TMap<FGameplayTag, FGameplayTag> DamageTypesToResistances;
 	
 	FGameplayTag Effects_HitReact;
