@@ -15,13 +15,12 @@ public class Gas_Aura : ModuleRules
 			"EnhancedInput",
 			"GameplayAbilities",
 			"GameplayTags", 
-			"GameplayTasks",
-			"NavigationSystem",
-			"Niagara",
-			"AIModule"
+			"GameplayTasks"
 		});
 
-		PrivateDependencyModuleNames.AddRange(new string[] { });
+		PrivateDependencyModuleNames.AddRange(new string[] { "NavigationSystem",
+                                                             			"Niagara",
+                                                             			"AIModule"});
 
 		// Uncomment if you are using Slate UI
 		// PrivateDependencyModuleNames.AddRange(new string[] { "Slate", "SlateCore" });
