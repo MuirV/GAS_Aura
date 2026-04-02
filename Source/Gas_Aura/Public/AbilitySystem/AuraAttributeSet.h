@@ -135,7 +135,7 @@ public:
 	ATTRIBUTE_ACCESSORS(UAuraAttributeSet, ManaRegeneration);
 
 	/*
-	 * Resistance Attributes
+	 * Resistance Attributes  TaFei项目里面是不需要的
 	 */
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing = OnRep_FireResistance, Category = "Resistance Attributes")
 	FGameplayAttributeData FireResistance;
